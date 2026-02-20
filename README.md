@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="https://github.com/keisen-app/keisen/blob/main/icon.png?raw=true" width="128" height="128" alt="Keisen" />
+  <img src="https://github.com/user-attachments/assets/b0554c60-d4e4-435a-965d-aae535da0581" width="128" height="128" alt="Keisen" />
 </p>
+
 
 <h1 align="center">Keisen</h1>
 
