@@ -1,1 +1,0 @@
-import{j as s}from"./index-DnbqwVvz.js";function o({children:t,className:x="",id:a}){return s.jsx("section",{id:a,className:`py-24 px-6 ${x}`,children:s.jsx("div",{className:"mx-auto max-w-6xl",children:t})})}export{o as S};
