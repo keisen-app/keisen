@@ -74,7 +74,7 @@ const GITHUB_REPO = "https://github.com/keisen-app/keisen";
 const TWITTER_URL = "https://x.com/getkeisen";
 const SITE_URL = "https://getkeisen.app";
 const SITE_NAME = "Keisen";
-const SITE_DESCRIPTION = "A powerful desktop client for SQLite, PostgreSQL, MySQL, and Redis. Write queries with AI assistance, visualize schemas, and manage your data.";
+const SITE_DESCRIPTION = "The SQL client you'll actually enjoy. Connect to PostgreSQL, MySQL, SQLite, and Redis. Write queries with AI, visualize data as charts, edit inline, and share connections securely.";
 const NAV_LINKS = [
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
@@ -1376,13 +1376,16 @@ function _createMdxContent$f(props) {
     h4: "h4",
     p: "p",
     pre: "pre",
+    strong: "strong",
     ...props.components
   };
   return jsxs(Fragment, {
     children: [jsx(_components.h4, {
       children: "SQLite"
     }), "\n", jsxs(_components.p, {
-      children: ['Click "New Workspace" and choose a ', jsx(_components.code, {
+      children: ["Click ", jsx(_components.strong, {
+        children: "New connection"
+      }), ", choose SQLite, and select a ", jsx(_components.code, {
         children: ".db"
       }), " or ", jsx(_components.code, {
         children: ".sqlite"
@@ -1534,7 +1537,7 @@ function _createMdxContent$e(props) {
       }), "\n", jsx(_components.li, {
         children: "Array and JSON/JSONB columns are displayed with syntax highlighting in the results grid"
       }), "\n", jsx(_components.li, {
-        children: "Keisen auto-detects sequences and shows them in the schema browser"
+        children: "Functions and routines are listed in the schema browser"
       }), "\n"]
     }), "\n", jsxs(_components.p, {
       children: [jsx(_components.strong, {
@@ -1905,10 +1908,10 @@ function _createMdxContent$c(props) {
     }), "\n", jsx(_components.h4, {
       children: "Sharing connections"
     }), "\n", jsx(_components.p, {
-      children: "Share a workspace's connection details with a colleague via an encrypted link."
+      children: "Share a project's connection details with a colleague via an encrypted link."
     }), "\n", jsxs(_components.ol, {
       children: ["\n", jsxs(_components.li, {
-        children: ["Hover over a workspace in the dropdown and click the ", jsx(_components.strong, {
+        children: ["Hover over a project in the dropdown and click the ", jsx(_components.strong, {
           children: "Share"
         }), " button"]
       }), "\n", jsx(_components.li, {
@@ -1917,7 +1920,7 @@ function _createMdxContent$c(props) {
         children: "Copy the generated link"
       }), "\n"]
     }), "\n", jsxs(_components.p, {
-      children: ["The link contains the workspace name, engine, color, and connection details — all encrypted with ", jsx(_components.strong, {
+      children: ["The link contains the project name, engine, color, and connection details — all encrypted with ", jsx(_components.strong, {
         children: "AES-256-GCM"
       }), " using PBKDF2 key derivation (100,000 iterations)."]
     }), "\n", jsx(_components.h4, {
@@ -1925,11 +1928,11 @@ function _createMdxContent$c(props) {
     }), "\n", jsxs(_components.p, {
       children: ["Open a shared ", jsx(_components.code, {
         children: "keisen://connect"
-      }), " link in Keisen. Enter the password to decrypt the connection details and create a new workspace automatically."]
+      }), " link in Keisen. Enter the password to decrypt the connection details and create a new project automatically."]
     }), "\n", jsx(_components.h4, {
       children: "What gets shared"
     }), "\n", jsx(_components.p, {
-      children: "The encrypted payload includes the workspace name, database engine, color, and connection parameters (host, port, database, username, password). All data is encrypted end-to-end in the URL — nothing passes through any server."
+      children: "The encrypted payload includes the project name, database engine, color, and connection parameters (host, port, database, username, password). All data is encrypted end-to-end in the URL — nothing passes through any server."
     })]
   });
 }
@@ -1999,18 +2002,18 @@ function _createMdxContent$b(props) {
         }), "), and run it."]
       }), "\n"]
     }), "\n", jsx(_components.h4, {
-      children: "Creating your first workspace"
+      children: "Creating your first project"
     }), "\n", jsxs(_components.ol, {
       children: ["\n", jsx(_components.li, {
-        children: "Launch Keisen. You'll see the workspace dropdown in the top-left corner."
+        children: "Launch Keisen. You'll see the project selector in the top-left corner."
       }), "\n", jsxs(_components.li, {
         children: ["Click ", jsx(_components.strong, {
-          children: "New workspace"
+          children: "New connection"
         }), " and select your database engine (SQLite, PostgreSQL, MySQL, or Redis)."]
       }), "\n", jsx(_components.li, {
         children: "Fill in the connection details — or paste a connection URL directly."
       }), "\n", jsx(_components.li, {
-        children: "Choose a color to identify this workspace at a glance."
+        children: "Choose a color to identify this project at a glance."
       }), "\n", jsxs(_components.li, {
         children: ["Click ", jsx(_components.strong, {
           children: "Connect"
@@ -2092,7 +2095,7 @@ function _createMdxContent$a(props) {
     }), "\n", jsx(_components.p, {
       children: "Open the history panel in the status bar to see your recent queries. Each entry shows the SQL text, when it ran, and how long it took."
     }), "\n", jsx(_components.p, {
-      children: "History is stored per workspace, so each database connection has its own query log."
+      children: "History is stored per project, so each database connection has its own query log."
     }), "\n", jsx(_components.h4, {
       children: "Searching history"
     }), "\n", jsx(_components.p, {
@@ -2110,7 +2113,7 @@ function _createMdxContent$a(props) {
     }), "\n", jsx(_components.h4, {
       children: "Clearing history"
     }), "\n", jsx(_components.p, {
-      children: "Click the clear button at the top of the history panel to delete all history entries for the current workspace."
+      children: "Click the clear button at the top of the history panel to delete all history entries for the current project."
     }), "\n", jsx(_components.h4, {
       children: "Automatic logging"
     }), "\n", jsx(_components.p, {
@@ -2172,9 +2175,9 @@ function _createMdxContent$9(props) {
         children: "NULL"
       }), ", clear its value completely. NULL values display as a dimmed label in the grid."]
     }), "\n", jsx(_components.h4, {
-      children: "Read-only workspaces"
+      children: "Read-only projects"
     }), "\n", jsx(_components.p, {
-      children: "If the workspace is in read-only mode, cells cannot be edited and write operations are blocked."
+      children: "If the project is in read-only mode, cells cannot be edited and write operations are blocked."
     })]
   });
 }
@@ -2282,7 +2285,7 @@ function _createMdxContent$8(props) {
     }), "\n", jsx(_components.h4, {
       children: "Chat history"
     }), "\n", jsx(_components.p, {
-      children: "AI conversations are saved per workspace. You can scroll back through previous messages, copy generated SQL, and insert it directly into the editor. Chat history is preserved even if your token quota runs out."
+      children: "AI conversations are saved per project and per tab. You can scroll back through previous messages, copy generated SQL, and insert it directly into the editor. Chat history is preserved even if your token quota runs out."
     }), "\n", jsx(_components.h4, {
       children: "Tips"
     }), "\n", jsxs(_components.ul, {
@@ -2363,7 +2366,7 @@ function _createMdxContent$7(props) {
     }), "\n", jsx(_components.h4, {
       children: "Multiple tabs"
     }), "\n", jsx(_components.p, {
-      children: "Open multiple editor tabs per workspace to work on different queries. Each tab preserves its own query text and results."
+      children: "Open multiple editor tabs per project to work on different queries. Each tab preserves its own query text and results."
     }), "\n", jsx(_components.h4, {
       children: "Command palette"
     }), "\n", jsxs(_components.p, {
@@ -2581,7 +2584,7 @@ function _createMdxContent$4(props) {
     }), "\n", jsx(_components.h4, {
       children: "Connection metadata"
     }), "\n", jsx(_components.p, {
-      children: "Non-sensitive connection details (host, port, database name, username, engine type) are stored separately. This data is needed to display workspaces in the sidebar."
+      children: "Non-sensitive connection details (host, port, database name, username, engine type) are stored separately. This data is needed to display projects in the sidebar."
     }), "\n", jsx(_components.h4, {
       children: "Encrypted connection sharing"
     }), "\n", jsxs(_components.p, {
@@ -2591,7 +2594,7 @@ function _createMdxContent$4(props) {
     }), "\n", jsx(_components.h4, {
       children: "Read-only mode"
     }), "\n", jsx(_components.p, {
-      children: "Enable read-only mode on a workspace to prevent accidental data modification. In read-only mode, inline editing is disabled and write queries are blocked."
+      children: "Enable read-only mode on a project to prevent accidental data modification. In read-only mode, inline editing is disabled and write queries are blocked."
     })]
   });
 }
@@ -2843,7 +2846,7 @@ function _createMdxContent$2(props) {
     }), "\n", jsx(_components.h4, {
       children: "Enabling the tunnel"
     }), "\n", jsxs(_components.p, {
-      children: ["In the workspace connection form, toggle ", jsx(_components.strong, {
+      children: ["In the project connection form, toggle ", jsx(_components.strong, {
         children: "SSH Tunnel"
       }), " to reveal the SSH configuration fields."]
     }), "\n", jsx(_components.h4, {
@@ -2913,7 +2916,7 @@ function _createMdxContent$2(props) {
         children: "Connects the database adapter to the local forwarded port"
       }), "\n"]
     }), "\n", jsx(_components.p, {
-      children: "The tunnel stays open for the lifetime of the workspace connection and closes automatically when you disconnect."
+      children: "The tunnel stays open for the lifetime of the project connection and closes automatically when you disconnect."
     }), "\n", jsx(_components.h4, {
       children: "SSH credentials"
     }), "\n", jsx(_components.p, {
@@ -3012,7 +3015,7 @@ function _createMdxContent$1(props) {
       }), "\n", jsx(_components.li, {
         children: "For MySQL, ensure the user has permissions from your IP address"
       }), "\n", jsx(_components.li, {
-        children: "Try re-entering the password in the workspace edit dialog"
+        children: "Try re-entering the password in the project edit dialog"
       }), "\n"]
     }), "\n", jsx(_components.h4, {
       children: '"Database does not exist"'
@@ -3105,13 +3108,13 @@ function _createMdxContent$1(props) {
       children: "Credentials not persisting"
     }), "\n", jsxs(_components.ul, {
       children: ["\n", jsx(_components.li, {
-        children: "If credentials are lost after an update, re-enter them in the workspace edit dialog"
+        children: "If credentials are lost after an update, re-enter them in the project edit dialog"
       }), "\n"]
     }), "\n", jsx(_components.h4, {
       children: "Data not saving after inline edit"
     }), "\n", jsxs(_components.ul, {
       children: ["\n", jsxs(_components.li, {
-        children: ["Ensure the workspace is not in ", jsx(_components.a, {
+        children: ["Ensure the project is not in ", jsx(_components.a, {
           href: "/docs/inline-editing",
           children: "read-only mode"
         })]
@@ -3137,8 +3140,8 @@ function MDXContent$1(props = {}) {
   }) : _createMdxContent$1(props);
 }
 const meta = {
-  id: "workspaces",
-  title: "Workspaces",
+  id: "projects",
+  title: "Projects",
   order: 2
 };
 function _createMdxContent(props) {
@@ -3153,13 +3156,13 @@ function _createMdxContent(props) {
   };
   return jsxs(Fragment, {
     children: [jsx(_components.p, {
-      children: "A workspace represents a single database connection. Each workspace stores its own tabs, query history, and settings."
+      children: "A project represents a single database connection. Each project stores its own tabs, query history, and settings."
     }), "\n", jsx(_components.h4, {
-      children: "Creating a workspace"
+      children: "Creating a project"
     }), "\n", jsxs(_components.p, {
-      children: ["Open the workspace dropdown and click ", jsx(_components.strong, {
-        children: "New workspace"
-      }), ". Fill in the connection details for your database engine:"]
+      children: ["Click ", jsx(_components.strong, {
+        children: "New connection"
+      }), " at the bottom of the project dropdown. Fill in the connection details for your database engine:"]
     }), "\n", jsxs(_components.ul, {
       children: ["\n", jsxs(_components.li, {
         children: [jsx(_components.strong, {
@@ -3189,27 +3192,27 @@ function _createMdxContent(props) {
     }), "\n", jsx(_components.h4, {
       children: "Color coding"
     }), "\n", jsx(_components.p, {
-      children: "Each workspace can be assigned one of 10 colors: slate, red, orange, amber, emerald, teal, blue, indigo, violet, or rose. The color appears in the sidebar and helps you tell workspaces apart at a glance."
+      children: "Each project can be assigned one of 10 colors: slate, red, orange, amber, emerald, teal, blue, indigo, violet, or rose. The color appears in the sidebar and helps you tell projects apart at a glance."
     }), "\n", jsx(_components.h4, {
-      children: "Switching workspaces"
+      children: "Switching projects"
     }), "\n", jsx(_components.p, {
-      children: "Click any workspace in the dropdown to switch to it. Each workspace maintains its own editor tabs, results, and state independently."
+      children: "Click any project in the dropdown to switch to it. Each project maintains its own editor tabs, results, and state independently."
     }), "\n", jsx(_components.h4, {
       children: "Simultaneous connections"
     }), "\n", jsx(_components.p, {
-      children: "You can have multiple workspaces open at the same time, even across different database engines. Connections are pooled — switching back to a workspace reuses the existing connection."
+      children: "You can have multiple projects open at the same time, even across different database engines. Connections are pooled — switching back to a project reuses the existing connection."
     }), "\n", jsx(_components.h4, {
       children: "Editing and deleting"
     }), "\n", jsxs(_components.p, {
-      children: ["Hover over a workspace in the dropdown to reveal the ", jsx(_components.strong, {
+      children: ["Hover over a project in the dropdown to reveal the ", jsx(_components.strong, {
         children: "Edit"
       }), " and ", jsx(_components.strong, {
         children: "Share"
-      }), " buttons. To delete a workspace, open the edit dialog and hold the trash button."]
+      }), " buttons. To delete a project, open the edit dialog and hold the trash button."]
     }), "\n", jsx(_components.h4, {
       children: "Read-only mode"
     }), "\n", jsx(_components.p, {
-      children: "Enable read-only mode on a workspace to prevent accidental writes. When enabled, inline editing and destructive queries are blocked."
+      children: "Enable read-only mode on a project to prevent accidental writes. When enabled, inline editing and destructive queries are blocked."
     })]
   });
 }
@@ -3374,27 +3377,27 @@ const changelog = [
   {
     version: "1.0.0",
     date: "2026-02-17",
-    title: "Keisen 1.0 — first stable release",
+    title: "Keisen 1.0 — everything you need, nothing you don't",
     changes: [
-      "Support for SQLite, PostgreSQL, MySQL/MariaDB, and Redis — plus Neon, Supabase, CockroachDB, PlanetScale, and Turso",
-      "Keisen AI: natural language to SQL with schema-aware context",
-      "7 chart types: bar, line, area, pie, doughnut, scatter, and radar with PNG export",
-      "Visual EXPLAIN plans with tree view and performance metrics for PostgreSQL, MySQL, and SQLite",
-      "Auto-generated ER diagrams with foreign key relationships and PNG export",
-      "Schema diff: compare table structures across workspaces",
-      "Smart autocomplete with table, column, alias, and keyword resolution",
-      "Inline editing: click-to-edit cells, insert/delete rows, batch commit with change tracking",
-      "Data import from CSV, JSON, and clipboard with column mapping",
-      "Export results as CSV, JSON, Markdown, clipboard, or image",
-      "Connection sharing via encrypted, password-protected links (AES-256-GCM)",
+      "Connect to SQLite, PostgreSQL, MySQL/MariaDB, and Redis — plus Neon, Supabase, CockroachDB, PlanetScale, and Turso",
+      "Keisen AI — ask in plain English, get production-ready SQL with full schema context",
+      "7 chart types with aggregation, live preview, and one-click PNG export",
+      "Visual EXPLAIN plans — interactive tree view with costs, timing, and row estimates",
+      "Auto-generated ER diagrams with foreign key detection and PNG export",
+      "Schema diff — compare two databases side by side, down to the column level",
+      "Smart autocomplete — tables, columns, aliases, and keywords from your live schema",
+      "Inline editing — double-click cells, insert/delete rows, batch commit with visual change tracking",
+      "Data import from CSV, JSON, and clipboard with automatic column matching",
+      "Export results as CSV, JSON, Markdown, clipboard, or screenshot",
+      "Encrypted connection sharing via password-protected links (AES-256-GCM)",
       "SSH tunneling with password or key-based authentication",
-      "SSL/TLS support with 5 modes: disable, prefer, require, verify-ca, verify-full",
-      "Full query history with search, timestamps, and execution time",
-      "Command palette (Cmd+K) for quick access to actions, tables, and tabs",
-      "Color-coded workspaces with simultaneous connections and read-only mode",
-      "Encrypted credential storage (AES-256-GCM)",
-      "macOS code signing and notarization",
-      "Native desktop app — macOS, Windows, and Linux"
+      "SSL/TLS with 5 configurable modes for secure remote connections",
+      "Full query history with search, timestamps, and execution time tracking",
+      "Command palette (Cmd+K) for instant access to actions, tables, and tabs",
+      "Color-coded projects with simultaneous connections and read-only mode",
+      "AES-256-GCM encrypted credential storage — zero plain-text secrets",
+      "Code-signed and notarized for macOS",
+      "Native desktop app for macOS, Windows, and Linux"
     ]
   }
 ];
@@ -3480,11 +3483,10 @@ function CTASection() {
     /* @__PURE__ */ jsx("div", { className: "absolute inset-0 -m-8 rounded-3xl bg-gradient-to-r from-amber-500/5 via-orange-500/5 to-red-500/5 blur-xl" }),
     /* @__PURE__ */ jsxs("div", { className: "relative text-center", children: [
       /* @__PURE__ */ jsxs("h2", { className: "mb-4 text-4xl font-light tracking-tight text-stone-100 md:text-5xl", children: [
-        "Ready to simplify your",
-        " ",
-        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "workflow?" })
+        "Your next query is ",
+        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "waiting." })
       ] }),
-      /* @__PURE__ */ jsx("p", { className: "mx-auto mb-10 max-w-xl text-lg text-stone-400", children: "Join developers who've already made the switch to a faster, simpler SQL client." }),
+      /* @__PURE__ */ jsx("p", { className: "mx-auto mb-10 max-w-xl text-lg text-stone-400", children: "Download Keisen and start your free trial — no credit card, no setup, no friction." }),
       /* @__PURE__ */ jsx("div", { className: "flex justify-center", children: /* @__PURE__ */ jsx(DownloadButton, {}) })
     ] })
   ] }) }) });
@@ -3493,175 +3495,175 @@ const features = [
   {
     Icon: s$2,
     title: "Keisen AI",
-    tagline: "Write SQL in any language",
-    description: "Generate, explain, and optimize SQL queries with built-in AI. Describe what you need in any language and get production-ready SQL instantly.",
+    tagline: "Ask in plain English. Get production SQL.",
+    description: "Stop writing boilerplate SQL. Describe what you need in any language — Keisen AI knows your schema and returns ready-to-run queries in seconds.",
     details: [
-      "Natural language to SQL in any language",
-      "Query explanation and optimization suggestions",
-      "Context-aware — understands your schema, tables, and columns",
-      "Works with all supported database engines"
+      "Natural language to SQL — works in any language",
+      "Instant query explanations and optimization tips",
+      "Schema-aware — understands your tables, columns, and relationships",
+      "Supports every engine: PostgreSQL, MySQL, SQLite, and Redis"
     ]
   },
   {
     Icon: n$8,
     title: "Charts",
-    tagline: "Visualize your query results",
-    description: "Turn any query into a chart. Pick from line, bar, pie, doughnut, radar, or scatter — configure axes, grouping, and aggregation in seconds.",
+    tagline: "From query to chart in one click.",
+    description: "Turn raw data into insights. Pick from seven chart types, configure axes and aggregation, and export publication-ready visuals — no spreadsheet needed.",
     details: [
       "Seven chart types: line, bar, area, pie, doughnut, radar, scatter",
-      "Automatic aggregation detection (sum, avg, count, max, min)",
-      "Export charts as PNG with custom gradient backgrounds",
-      "Real-time preview as you configure axes and series"
+      "Built-in aggregation: sum, avg, count, min, max — auto-detected",
+      "Export as PNG with polished gradient backgrounds",
+      "Live preview that updates as you tweak axes and series"
     ]
   },
   {
     Icon: n$3,
     title: "EXPLAIN Plans",
-    tagline: "Understand how your queries run",
-    description: "Visualize query execution plans as interactive trees. See row estimates, actual counts, costs, and timing at every step — across PostgreSQL, MySQL, and SQLite.",
+    tagline: "See exactly where your query slows down.",
+    description: "Stop guessing why a query is slow. Visualize execution plans as interactive trees with row estimates, costs, and timing at every step.",
     details: [
-      "Tree view for execution plans with expandable nodes",
-      "Estimated vs actual row counts and loop detection",
-      "Cost estimation and timing breakdown (planning + execution)",
+      "Interactive tree view with expandable plan nodes",
+      "Estimated vs actual rows — spot bad estimates instantly",
+      "Cost and timing breakdown for planning + execution",
       "Engine-specific: EXPLAIN ANALYZE, EXPLAIN QUERY PLAN"
     ]
   },
   {
     Icon: n$1,
     title: "Schema Diagrams",
-    tagline: "Visualize your database",
-    description: "Auto-generated ER diagrams that show your tables, columns, and relationships at a glance. Export them for documentation.",
+    tagline: "Your entire database, visualized.",
+    description: "Auto-generated ER diagrams that map your tables, columns, and foreign keys at a glance. Pan, zoom, rearrange — then export for your team.",
     details: [
-      "Automatic foreign key relationship detection",
-      "Interactive pan and zoom with layout options",
+      "Automatic foreign key and relationship detection",
+      "Interactive pan, zoom, and drag-to-rearrange",
       "Column types, constraints, and primary key highlights",
-      "Export diagrams as images for docs and presentations"
+      "One-click export as PNG for docs and presentations"
     ]
   },
   {
     Icon: m$1,
     title: "Schema Diff",
-    tagline: "Compare databases side by side",
-    description: "Compare table structures across two workspaces. See added, removed, and modified tables, columns, and indexes at a glance.",
+    tagline: "Spot every difference between two databases.",
+    description: "Connect two databases and compare their structures side by side. See every added, removed, and changed table, column, and index — instantly.",
     details: [
-      "Side-by-side comparison of any two workspaces",
-      "Highlights added, removed, and changed tables",
+      "Live comparison of any two connected databases",
+      "Highlights added, removed, and modified tables at a glance",
       "Column-level diff with type and constraint changes",
-      "Available when two or more workspaces are connected"
+      "Index-level diff with uniqueness and column details"
     ]
   },
   {
     Icon: n$5,
     title: "Smart Autocomplete",
-    tagline: "Schema-aware code completion",
-    description: "Autocomplete that actually knows your database. Tables, columns, functions, and keywords — all context-aware and instant.",
+    tagline: "Your schema, at your fingertips.",
+    description: "Autocomplete that actually knows your database. Table names, columns, aliases, functions — all context-aware, dialect-specific, and instant.",
     details: [
-      "Table and column name completion from live schema",
-      "Alias resolution in JOINs and subqueries",
-      "SQL keyword and function suggestions per dialect",
-      "Case-insensitive fuzzy matching"
+      "Table and column completion from your live schema",
+      "Alias resolution across JOINs and subqueries",
+      "Dialect-aware keyword and function suggestions",
+      "Case-insensitive fuzzy matching — type fast, stay in flow"
     ]
   },
   {
     Icon: a$1,
     title: "Inline Editing",
-    tagline: "Edit data directly in the grid",
-    description: "Click any cell to edit it. Insert rows, delete rows, and batch-commit changes — all validated against column types before saving.",
+    tagline: "Edit rows without writing a single UPDATE.",
+    description: "Double-click any cell to edit it. Insert rows, delete rows, and batch-commit changes — all type-validated and trackable before you hit save.",
     details: [
-      "Click-to-edit any cell with type validation",
-      "Insert and delete rows inline",
-      "Batch operations with change tracking and undo",
-      "Read-only mode for production databases"
+      "Click-to-edit with automatic type validation",
+      "Insert and delete rows directly in the grid",
+      "Visual change tracking with batch commit and undo",
+      "Read-only mode to lock down production databases"
     ]
   },
   {
     Icon: s$3,
     title: "Export & Share",
-    tagline: "Get your data out, share connections in",
-    description: "Export results as CSV, JSON, or Markdown. Copy to clipboard or save as an image. Share connections with teammates via encrypted, password-protected links.",
+    tagline: "Your data, anywhere you need it.",
+    description: "Export results as CSV, JSON, Markdown, or a polished screenshot. Share database connections with your team via encrypted, password-protected links.",
     details: [
       "Export to CSV, JSON, Markdown, or clipboard",
-      "Save results as images with one click",
-      "Share connections via encrypted, password-protected URLs",
-      "Deep link import — open shared connections instantly"
+      "One-click screenshot export as PNG",
+      "Encrypted connection sharing with password protection",
+      "Deep link import — teammates connect in one click"
     ]
   },
   {
     Icon: s$1,
     title: "Data Import",
-    tagline: "Bring data in from anywhere",
-    description: "Import data into your tables from CSV files, JSON files, or directly from your clipboard. Map columns, preview the import, and insert rows in bulk.",
+    tagline: "Paste it, drop it, import it.",
+    description: "Bring data into any table from CSV, JSON, or your clipboard. Columns are auto-matched, values are type-coerced, and rows land in the grid ready to review before you commit.",
     details: [
-      "Import from CSV, JSON, or clipboard",
-      "Column mapping with type detection",
-      "Preview rows before inserting",
-      "Works with any table that has a defined schema"
+      "Import from CSV, JSON, or clipboard in one step",
+      "Automatic column matching and type coercion",
+      "Review imported rows in the grid before committing",
+      "Works with any table that has a primary key"
     ]
   },
   {
     Icon: n$6,
     title: "History & Saved Tabs",
-    tagline: "Never lose a query again",
-    description: "Full history of every query you've run, with timestamps and execution times. Save frequently used queries as tabs for instant recall.",
+    tagline: "Every query you've ever run, one search away.",
+    description: "Automatic history with timestamps and execution times. Pin your best queries as saved tabs. Find anything instantly with the command palette.",
     details: [
-      "Searchable query history per workspace",
-      "Save and organize queries as tabs",
-      "Execution time and row count tracking",
+      "Searchable query history per project",
+      "Save and organize queries as pinned tabs",
+      "Execution time and row count for every query",
       "Command palette (Cmd+K) for instant access to everything"
     ]
   },
   {
     Icon: n$4,
     title: "Multiple Databases",
-    tagline: "One app for all your databases",
-    description: "Connect to PostgreSQL, MySQL/MariaDB, SQLite, and Redis — plus compatible services like Neon, Supabase, CockroachDB, PlanetScale, and Turso. Locally or through SSH tunnels.",
+    tagline: "One app to rule them all.",
+    description: "PostgreSQL, MySQL, SQLite, Redis — plus Neon, Supabase, CockroachDB, PlanetScale, and Turso. Connect locally, through SSH tunnels, or over SSL.",
     details: [
-      "4 database engines + cloud-compatible services",
-      "SSH tunneling for secure remote connections",
-      "SSL/TLS support with configurable modes",
-      "Color-coded workspaces with simultaneous connections"
+      "4 engines + 5 cloud-compatible services out of the box",
+      "SSH tunneling for databases behind firewalls",
+      "SSL/TLS with 5 configurable modes",
+      "Color-coded projects with simultaneous connections"
     ]
   },
   {
     Icon: h,
     title: "Secure by Default",
-    tagline: "Credentials encrypted at rest",
-    description: "All sensitive credentials are encrypted with AES-256-GCM before being stored locally. Never in plaintext, never in config files.",
+    tagline: "Your credentials never touch plain text.",
+    description: "Every password, key, and certificate is encrypted with AES-256-GCM before it's stored. Share connections safely with end-to-end encrypted links.",
     details: [
-      "AES-256-GCM encryption for all stored credentials",
-      "Passwords never written to disk in plain text",
-      "Connection sharing via encrypted, password-protected links",
+      "AES-256-GCM encryption for all stored secrets",
+      "Zero plain-text credentials — ever",
+      "End-to-end encrypted connection sharing",
       "Read-only mode to prevent accidental writes"
     ]
   },
   {
     Icon: c$2,
     title: "Native Performance",
-    tagline: "Fast and lightweight",
-    description: "A native desktop app. Fast startup, low memory, smooth scrolling on large result sets, and offline support for core features.",
+    tagline: "Instant startup. Millions of rows. No lag.",
+    description: "A true native desktop app — not an Electron wrapper. Sub-second startup, virtual scrolling for massive result sets, and full offline support.",
     details: [
-      "Lightweight app with instant startup",
-      "Virtual scrolling for millions of rows",
-      "Works offline — AI and license are the only online features",
-      "macOS, Windows, and Linux"
+      "Sub-second startup, minimal memory footprint",
+      "Virtual scrolling handles millions of rows smoothly",
+      "Works fully offline — only AI and licensing need internet",
+      "Available on macOS, Windows, and Linux"
     ]
   }
 ];
 function Features() {
   useSEO({
     title: "Features",
-    description: "Explore all Keisen features: AI SQL assistant, charts, EXPLAIN plans, schema diagrams, inline editing, SSH tunneling, and more.",
+    description: "AI-powered queries, interactive charts, EXPLAIN plans, schema diagrams, inline editing, encrypted sharing, and more — all in one native app.",
     path: "/features"
   });
   return /* @__PURE__ */ jsxs(Fragment, { children: [
     /* @__PURE__ */ jsxs(Section, { className: "pt-32", children: [
       /* @__PURE__ */ jsx("div", { className: "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[400px] overflow-hidden", children: /* @__PURE__ */ jsx("div", { className: "absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-amber-500/15 blur-[120px]" }) }),
       /* @__PURE__ */ jsx(FadeIn, { children: /* @__PURE__ */ jsxs("h1", { className: "mb-4 text-center text-4xl font-light tracking-tight md:text-6xl", children: [
-        "Built for developers who",
+        "Everything you need.",
         " ",
-        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "ship." })
+        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "Nothing you don't." })
       ] }) }),
-      /* @__PURE__ */ jsx(FadeIn, { delay: 100, children: /* @__PURE__ */ jsx("p", { className: "mx-auto mb-16 max-w-2xl text-center text-lg text-stone-400", children: "Every feature is designed to get you from question to answer faster. No bloat, no configuration dialogs, no learning curve." }) })
+      /* @__PURE__ */ jsx(FadeIn, { delay: 100, children: /* @__PURE__ */ jsx("p", { className: "mx-auto mb-16 max-w-2xl text-center text-lg text-stone-400", children: "AI-powered queries, interactive charts, inline editing, encrypted sharing — and zero configuration to get started." }) })
     ] }),
     features.map((feature, i) => /* @__PURE__ */ jsx(Section, { className: "py-16", children: /* @__PURE__ */ jsxs(
       "div",
@@ -3767,7 +3769,7 @@ function usePlans() {
 }
 const FEATURE_LABELS = {
   databases: "SQLite, PostgreSQL & Redis",
-  connections: "Unlimited workspaces",
+  connections: "Unlimited projects",
   ai: "Keisen AI",
   charts: "Charts & visualization",
   explainPlans: "EXPLAIN query plans",
@@ -4022,11 +4024,11 @@ function Home() {
           ] })
         ] }) }),
         /* @__PURE__ */ jsx(FadeIn, { delay: 100, children: /* @__PURE__ */ jsxs("h1", { className: "mb-6 text-6xl font-light tracking-tight md:text-8xl", children: [
-          "Your data,",
+          "The SQL client",
           /* @__PURE__ */ jsx("br", {}),
-          /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "one keystroke away." })
+          /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "you'll actually enjoy." })
         ] }) }),
-        /* @__PURE__ */ jsx(FadeIn, { delay: 200, children: /* @__PURE__ */ jsx("p", { className: "mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-stone-400 md:text-xl", children: "A powerful desktop client for PostgreSQL, MySQL, SQLite, Redis, and more. Write queries with AI, visualize results as charts, explore schemas, and manage your data — all in one place." }) }),
+        /* @__PURE__ */ jsx(FadeIn, { delay: 200, children: /* @__PURE__ */ jsx("p", { className: "mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-stone-400 md:text-xl", children: "Connect to PostgreSQL, MySQL, SQLite, and Redis. Write queries with AI, visualize results as charts, edit data inline, and share connections securely — all from one native app." }) }),
         /* @__PURE__ */ jsx(FadeIn, { delay: 300, children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center justify-center gap-4 sm:flex-row", children: [
           /* @__PURE__ */ jsx(DownloadButton, {}),
           /* @__PURE__ */ jsx(
@@ -4044,11 +4046,11 @@ function Home() {
     ] }),
     /* @__PURE__ */ jsxs(Section, { children: [
       /* @__PURE__ */ jsx(FadeIn, { children: /* @__PURE__ */ jsxs("h2", { className: "mb-4 text-center text-4xl font-light tracking-tight md:text-5xl", children: [
-        "Everything you need,",
+        "Powerful where it counts.",
         /* @__PURE__ */ jsx("br", {}),
-        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "nothing you don't." })
+        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "Simple everywhere else." })
       ] }) }),
-      /* @__PURE__ */ jsx(FadeIn, { delay: 100, children: /* @__PURE__ */ jsx("p", { className: "mx-auto mb-16 max-w-2xl text-center text-stone-400", children: "Built for developers who want to focus on their queries, not their tools." }) }),
+      /* @__PURE__ */ jsx(FadeIn, { delay: 100, children: /* @__PURE__ */ jsx("p", { className: "mx-auto mb-16 max-w-2xl text-center text-stone-400", children: "Every feature is designed to keep you in flow — from AI-powered queries to one-click chart exports." }) }),
       /* @__PURE__ */ jsx("div", { className: "grid gap-5 md:grid-cols-2 lg:grid-cols-3", children: features.slice(0, 6).map((feature, i) => /* @__PURE__ */ jsx(FadeIn, { delay: i * 100, children: /* @__PURE__ */ jsx(
         FeatureCard,
         {
@@ -4070,13 +4072,12 @@ function Home() {
     ] }),
     /* @__PURE__ */ jsxs(Section, { children: [
       /* @__PURE__ */ jsx(FadeIn, { children: /* @__PURE__ */ jsxs("h2", { className: "mb-4 text-center text-4xl font-light tracking-tight md:text-5xl", children: [
-        "Simple ",
-        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "pricing." })
+        "Start free. ",
+        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "Scale when ready." })
       ] }) }),
       /* @__PURE__ */ jsx(FadeIn, { delay: 100, children: /* @__PURE__ */ jsxs("p", { className: "mx-auto mb-12 max-w-lg text-center text-stone-400", children: [
-        "Two plans. No surprises. Start with a ",
         FALLBACK_TRIAL_DAYS,
-        "-day free trial."
+        "-day free trial with full Pro access. No credit card required."
       ] }) }),
       /* @__PURE__ */ jsx(FadeIn, { delay: 200, children: /* @__PURE__ */ jsx(PricingCards, {}) })
     ] }),
@@ -4086,39 +4087,39 @@ function Home() {
 const FAQ_ITEMS = [
   {
     q: "How does the free trial work?",
-    a: "Download Keisen and use it for 7 days with all features unlocked (Pro tier). No credit card required to start. When the trial ends, choose a plan to continue."
+    a: "Download Keisen and start using it immediately — no credit card, no sign-up. You get 7 days of full Pro-tier access: every database engine, AI assistant, charts, EXPLAIN plans, inline editing, and more. When the trial ends, pick a plan to continue."
   },
   {
     q: "What's the difference between the plans?",
-    a: "All plans include the full set of core features — multiple databases, charts, schema diagrams, EXPLAIN plans, inline editing, and export. Lite has no AI. Base includes 500 AI queries per month. Pro gives you 2,500 AI queries plus priority support."
+    a: "Every plan includes the full feature set — multiple databases, charts, schema diagrams, EXPLAIN plans, inline editing, data import, and export. The only difference is AI: Lite has no AI, Base gives you 500 AI queries per month, and Pro unlocks 2,500 AI queries plus priority support."
   },
   {
     q: "What payment methods do you accept?",
-    a: "We accept all major credit cards (Visa, Mastercard, American Express) through Stripe. All payments are processed securely."
+    a: "All major credit cards (Visa, Mastercard, American Express) through Stripe. Payments are PCI-compliant and fully encrypted."
   },
   {
     q: "Can I cancel anytime?",
-    a: "Yes. Cancel your subscription at any time from your account. You'll keep access until the end of your billing period."
+    a: "Absolutely. Just send an email to cancel@getkeisen.app — no hoops, no retention calls, no questions asked. You keep full access until the end of your billing period."
   },
   {
     q: "Can I switch plans?",
-    a: "Yes. Upgrade or downgrade at any time. When upgrading, you'll be charged the prorated difference. When downgrading, the change takes effect at the next billing cycle."
+    a: "Anytime. Upgrade and you're charged the prorated difference immediately. Downgrade and the change kicks in at your next billing cycle. No penalties either way."
   },
   {
     q: "How are my credentials stored?",
-    a: "Database passwords are encrypted with AES-256-GCM and stored locally. They are never saved in plaintext or config files."
+    a: "Every password, SSH key, and certificate is encrypted with AES-256-GCM before it touches disk. Nothing is ever stored in plain text — not in config files, not anywhere."
   },
   {
     q: "Do I need an internet connection?",
-    a: "Only for AI features and license validation. All core functionality — connecting to databases, running queries, editing data, charts, and export — works fully offline."
+    a: "Only for AI features and license validation. Everything else — connecting to databases, running queries, editing data, charts, data import, and export — works fully offline."
   },
   {
     q: "Can I connect to remote databases?",
-    a: "Yes. Keisen supports SSH tunneling, so you can securely connect to databases behind firewalls or on remote servers. SSL/TLS is also supported for PostgreSQL and MySQL connections."
+    a: "Yes. Keisen has built-in SSH tunneling for databases behind firewalls, plus full SSL/TLS support with five configurable modes. Connect to anything, anywhere."
   },
   {
     q: "What is your refund policy?",
-    a: "You can request a full refund within 7 days of your first payment if you are unsatisfied. After the 7-day window or for subsequent billing cycles, refunds are not available. Cancel anytime to stop future charges — you keep access until the end of your billing period."
+    a: "Full refund within 7 days of your first payment, no questions asked. After that, cancel anytime to stop future charges — you keep access through the end of your billing period."
   }
 ];
 function FAQItem({ q, a: a2 }) {
@@ -4151,7 +4152,7 @@ function FAQItem({ q, a: a2 }) {
 function Pricing() {
   useSEO({
     title: "Pricing",
-    description: "Keisen pricing: Lite at $7.99/mo, Base at $11.99/mo, and Pro at $18.99/mo. 10% off with annual billing. 7-day free trial.",
+    description: "Keisen pricing — every feature included in every plan. Lite, Base, and Pro tiers. 7-day free trial with full Pro access, no credit card required.",
     path: "/pricing"
   });
   useEffect(() => {
@@ -4164,7 +4165,7 @@ function Pricing() {
         "Simple ",
         /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "pricing." })
       ] }) }),
-      /* @__PURE__ */ jsx(FadeIn, { delay: 100, children: /* @__PURE__ */ jsx("p", { className: "mx-auto mb-16 max-w-lg text-center text-lg text-stone-400", children: "Three plans, no surprises. Start with a free trial, no credit card required." }) }),
+      /* @__PURE__ */ jsx(FadeIn, { delay: 100, children: /* @__PURE__ */ jsx("p", { className: "mx-auto mb-16 max-w-lg text-center text-lg text-stone-400", children: "Three plans. Every feature included. Pick the AI tier that fits your workflow." }) }),
       /* @__PURE__ */ jsx(FadeIn, { delay: 200, children: /* @__PURE__ */ jsx(PricingCards, {}) })
     ] }),
     /* @__PURE__ */ jsxs(Section, { children: [
@@ -4236,7 +4237,7 @@ function Privacy() {
       /* @__PURE__ */ jsx("h2", { children: "Data retention" }),
       /* @__PURE__ */ jsx("p", { children: "Account data is retained while your subscription is active. If you cancel and request deletion, we remove your account data within 30 days. Analytics data is aggregated and anonymized." }),
       /* @__PURE__ */ jsx("h2", { children: "Local data" }),
-      /* @__PURE__ */ jsx("p", { children: "Keisen stores workspace metadata, query history, tabs, and settings locally on your machine. This data never leaves your device. You can delete it by removing the app's data directory." }),
+      /* @__PURE__ */ jsx("p", { children: "Keisen stores project metadata, query history, tabs, and settings locally on your machine. This data never leaves your device. You can delete it by removing the app's data directory." }),
       /* @__PURE__ */ jsx("h2", { children: "Connection sharing" }),
       /* @__PURE__ */ jsx("p", { children: "When you share a connection via link, the connection details are encrypted client-side with AES-256-GCM using a password you choose. The encrypted payload is encoded in the URL. No connection data passes through our servers." }),
       /* @__PURE__ */ jsx("h2", { children: "Children's privacy" }),
