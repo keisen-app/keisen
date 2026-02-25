@@ -3987,22 +3987,46 @@ function PricingCards() {
     ] }) })
   ] });
 }
-function ScreenshotFrame({
-  children,
-  title,
-  className = ""
+function VideoPlayer({
+  src,
+  poster,
+  autoPlay = true,
+  muted = true,
+  loop = true,
+  controls = false
 }) {
-  return /* @__PURE__ */ jsxs("div", { className: `relative ${className}`, children: [
-    /* @__PURE__ */ jsx("div", { className: "absolute -inset-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-red-500/10 blur-2xl" }),
-    /* @__PURE__ */ jsxs("div", { className: "relative overflow-hidden rounded-xl border border-white/10 bg-stone-900/80 shadow-2xl backdrop-blur-sm", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex h-10 items-center gap-2 border-b border-white/5 bg-stone-800/50 px-4", children: [
-        /* @__PURE__ */ jsx("div", { className: "size-3 rounded-full bg-red-500/80" }),
-        /* @__PURE__ */ jsx("div", { className: "size-3 rounded-full bg-yellow-500/80" }),
-        /* @__PURE__ */ jsx("div", { className: "size-3 rounded-full bg-green-500/80" }),
-        title && /* @__PURE__ */ jsx("span", { className: "ml-4 text-xs text-stone-500", children: title })
-      ] }),
-      /* @__PURE__ */ jsx("div", { children })
-    ] })
+  return /* @__PURE__ */ jsxs("div", { style: { position: "relative", width: "100%" }, children: [
+    /* @__PURE__ */ jsx(
+      "video",
+      {
+        src,
+        poster,
+        autoPlay,
+        muted,
+        loop,
+        controls,
+        playsInline: true,
+        preload: "metadata",
+        style: { width: "100%", height: "auto", display: "block" },
+        children: "Seu navegador não suporta vídeo."
+      }
+    ),
+    /* @__PURE__ */ jsx(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          inset: 0,
+          background: `radial-gradient(
+            ellipse at center,
+            transparent 60%,
+            rgba(0, 0, 0, 0) 80%,
+            rgba(0, 0, 0, 0.9) 100%
+          )`,
+          pointerEvents: "none"
+        }
+      }
+    )
   ] });
 }
 function Home() {
@@ -4042,7 +4066,7 @@ function Home() {
           )
         ] }) })
       ] }),
-      /* @__PURE__ */ jsx(FadeIn, { delay: 400, className: "mx-auto mt-20 max-w-5xl", children: /* @__PURE__ */ jsx(ScreenshotFrame, { title: "keisen — e-commerce.db", children: /* @__PURE__ */ jsx("div", { className: "flex aspect-[16/10] items-center justify-center", children: /* @__PURE__ */ jsx("p", { className: "text-sm text-stone-500", children: "Screenshot coming soon" }) }) }) })
+      /* @__PURE__ */ jsx(FadeIn, { delay: 400, className: "mx-auto mt-20 max-w-5xl", children: /* @__PURE__ */ jsx(VideoPlayer, { src: "video.webm", autoPlay: true, muted: true }) })
     ] }),
     /* @__PURE__ */ jsxs(Section, { children: [
       /* @__PURE__ */ jsx(FadeIn, { children: /* @__PURE__ */ jsxs("h2", { className: "mb-4 text-center text-4xl font-light tracking-tight md:text-5xl", children: [
